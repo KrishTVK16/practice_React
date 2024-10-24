@@ -10,7 +10,7 @@ const DebounceSearchInput = () => {
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedTerm(searchTerm);
-    }, 500); // 500ms debounce time
+    }, 200); // 200ms debounce time
 
     return () => {
       clearTimeout(timerId); // Cleanup timer
@@ -23,8 +23,8 @@ const DebounceSearchInput = () => {
       const fetchResults = async () => {
         try {
           // Replace this with your actual API endpoint
-          const response = await axios.get(`https://api.example.com/search?q=${debouncedTerm}`);
-          setResults(response.data.results); // Assuming the API returns a 'results' array
+          const response = await axios.get(`https://api.github.com/search/repositories?q=${debouncedTerm}`);
+          setResults(response.data.items.map(item => item.name)); // Assuming the API returns a 'results' array
         } catch (error) {
           console.error('Error fetching results', error);
         }
