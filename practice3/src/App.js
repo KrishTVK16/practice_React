@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import DragAndDropOrderList from './DragAndDropOrderList';
 
 function App() {
+  const items = ['First Item', 'Second Item', 'Third Item', 'Fourth Item'];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <center><h1>Drag and Drop List</h1></center>
+      <DragAndDropOrderList items={items} />
     </div>
   );
 }
